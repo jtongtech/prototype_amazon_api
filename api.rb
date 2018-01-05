@@ -6,12 +6,12 @@ require 'openssl'
 require 'base64'
 require 'open-uri'
 require 'nokogiri'
-
+load './local_env.rb' if File.exist?('./local_env.rb')
 # Your Access Key ID, as taken from the Your Account page
 ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID']
 
 # Your Secret Key corresponding to the above ID, as taken from the Your Account page
-SECRET_KEY = ENV['SECRET_KEY']
+SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
 
 # The region you are interested in
 ENDPOINT = "webservices.amazon.com"
@@ -26,9 +26,9 @@ end
 params = {
   "Service" => "AWSECommerceService",
   "Operation" => "ItemLookup",
-  ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID'], #from locals
-  AWS_AFFILIATE_KEY = ENV['AWS_AFFILIATE_KEY'], #from locals
-  "ItemId" => upc, #variable from user input
+  "AWSAccessKeyId" => ENV['AWS_ACCESS_KEY_ID'], #from locals
+  "AssociateTag" => ENV['AWS_AFFILIATE_KEY'], #from locals
+  "ItemId" => "028400070980", #variable from user input
   "IdType" => "UPC", #variable from dropdown
   "ResponseGroup" => "Images,ItemAttributes,ItemIds",
   "SearchIndex" => "All"
