@@ -13,7 +13,7 @@ get '/get_info' do
 end
 
 post '/get_info' do
-
+  upc = params[:upc]
   redirect '/product?results='+results
 end  
 

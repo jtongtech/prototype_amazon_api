@@ -18,9 +18,8 @@ ENDPOINT = "webservices.amazon.com"
 
 REQUEST_URI = "/onca/xml"
 
-def get_input
-
-
+def get_upc
+  upc = params[:upc]
 end
 
 
@@ -29,7 +28,7 @@ params = {
   "Operation" => "ItemLookup",
   ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID'], #from locals
   AWS_AFFILIATE_KEY = ENV['AWS_AFFILIATE_KEY'], #from locals
-  "ItemId" => "028400070980", #variable from user input
+  "ItemId" => upc, #variable from user input
   "IdType" => "UPC", #variable from dropdown
   "ResponseGroup" => "Images,ItemAttributes,ItemIds",
   "SearchIndex" => "All"
