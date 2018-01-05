@@ -8,22 +8,28 @@ require 'open-uri'
 require 'nokogiri'
 
 # Your Access Key ID, as taken from the Your Account page
-ACCESS_KEY_ID = "AKIAJA4MIF6DRHGONBWQ"
+ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID']
 
 # Your Secret Key corresponding to the above ID, as taken from the Your Account page
-SECRET_KEY = "EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"
+SECRET_KEY = ENV['SECRET_KEY']
 
 # The region you are interested in
 ENDPOINT = "webservices.amazon.com"
 
 REQUEST_URI = "/onca/xml"
 
+def get_input
+
+
+end
+
+
 params = {
   "Service" => "AWSECommerceService",
   "Operation" => "ItemLookup",
-  "AWSAccessKeyId" => "AKIAJA4MIF6DRHGONBWQ", #from locals
-  "AssociateTag" => "jtong-20", #from locals
-  "ItemId" => "9780692573679", #variable from user input
+  ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID'], #from locals
+  AWS_AFFILIATE_KEY = ENV['AWS_AFFILIATE_KEY'], #from locals
+  "ItemId" => "028400070980", #variable from user input
   "IdType" => "UPC", #variable from dropdown
   "ResponseGroup" => "Images,ItemAttributes,ItemIds",
   "SearchIndex" => "All"
