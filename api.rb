@@ -21,10 +21,10 @@ REQUEST_URI = "/onca/xml"
 params = {
   "Service" => "AWSECommerceService",
   "Operation" => "ItemLookup",
-  "AWSAccessKeyId" => "AKIAJA4MIF6DRHGONBWQ",
-  "AssociateTag" => "jtong-20",
-  "ItemId" => "9780692573679",
-  "IdType" => "UPC",
+  "AWSAccessKeyId" => "AKIAJA4MIF6DRHGONBWQ", #from locals
+  "AssociateTag" => "jtong-20", #from locals
+  "ItemId" => "9780692573679", #variable from user input
+  "IdType" => "UPC", #variable from dropdown
   "ResponseGroup" => "Images,ItemAttributes,ItemIds",
   "SearchIndex" => "All"
 }
