@@ -13,6 +13,8 @@ get '/get_info' do
 end
 
 post '/get_info' do
-  
+
   redirect '/product?results='+results
 end  
+
+#this is just to trigger gits change monitor 
