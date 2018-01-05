@@ -35,6 +35,10 @@ res.total_pages
 res.total_results
 res.item_page                             # current page no if :item_page option is provided
 
+res = Amazon::Ecs.item_lookup("B00CELGN0Y")
+item = res.get_element("Item")
+puts "item is #{item} ********************************"
+
 # Find elements matching 'Item' in response object
 res.items.each do |item|
   # Retrieve string value using XML path
