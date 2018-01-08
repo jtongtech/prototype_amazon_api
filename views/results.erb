@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+.large_img {
+	width: 45%;
+}
+</style>
 <html>
 		<h1><%=product_title%></h1>
 		<h2><%=product_price%></h2>
@@ -6,7 +11,7 @@
 
 		
 		<% large_photos_array.each do |url| %>
-			<img src=<%=url%>>
+			<img class="large_img" src=<%=url%>>
 		<%end%>
 
 
