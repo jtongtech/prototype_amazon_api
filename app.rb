@@ -8,6 +8,7 @@ load './local_env.rb' if File.exist?('./local_env.rb')
 
 
 
+
 get '/' do
 	# upc_info = params[:html_info]
 	# print(upc_info)
