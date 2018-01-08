@@ -51,10 +51,15 @@ def get_upc_info(upc)
 
   html_result = Nokogiri::HTML(open(request_url))
   # monkeys.css('largeimage').each do |monkey|
-  puts "THIS IS html_result: #{html_result}"
+  # puts "THIS IS html_result: #{html_result}"
   # end
   # puts "Signed URL: \"#{request_url}\""
   html_result
+end
+
+def error_check(html_info)
+  error = html_info.css('errors error message').text
+  error
 end
 
 def get_large_images(html_info)
