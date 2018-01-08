@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+.large_img {
+	width: 45%;
+}
+</style>
 <html>
 
 	<%if error != '' %>
@@ -18,7 +23,7 @@
 
 		
 		<% large_photos_array.each do |url| %>
-			<img src=<%=url%>>
+			<img class="large_img" src=<%=url%>>
 		<%end%>
 
 
