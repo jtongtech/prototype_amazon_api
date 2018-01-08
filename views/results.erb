@@ -3,14 +3,24 @@
 .large_img {
 	width: 19.5%;
 }
+.submitBtn {
+	width: 12vw;
+    height: 3vw;
+	font-size: 1.5vw;
+}
 @media (max-width: 1024px) {
 	.large_img {
 		width: 45%;
 	}
+	.submitBtn {
+		width: 33vw;
+		height: 7vw;
+		font-size: 4vw;
+	}
 }
 </style>
 <html>
-
+<center>
 	<%if error != '' %>
 		<h1>ERROR</h1>
 
@@ -33,9 +43,10 @@
 
 
 		<form method="post" action="return_home">
-			<input type="submit" value="Search Again">
+			<input class="submitBtn" type="submit" value="Search Again">
 		</form>
 
 	</body>
 	<%end%>
+	</center>
 </html>
