@@ -10,6 +10,18 @@
 }
 </style>
 <html>
+
+	<%if error != '' %>
+		<h1>ERROR</h1>
+
+		<%=error%>
+
+		<form method="post" action="return_home">
+			<input type="submit" value="Search Again">
+		</form>
+	<%else%>
+
+
 		<h1><%=product_title%></h1>
 		<h2><%=product_price%></h2>
 	<body>
@@ -25,4 +37,5 @@
 		</form>
 
 	</body>
+	<%end%>
 </html>
