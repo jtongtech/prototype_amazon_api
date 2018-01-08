@@ -5,7 +5,11 @@ GEM
       nokogiri (~> 1.4)
       ruby-hmac (~> 0.3)
     mini_portile2 (2.3.0)
+<<<<<<< HEAD
     nokogiri (1.8.1-x64-mingw32)
+=======
+    nokogiri (1.8.1-x86-mingw32)
+>>>>>>> a65355fa0cca42c98329cd80997cfe94555e3274
       mini_portile2 (~> 2.3.0)
     rack (1.6.8)
     rack-protection (1.5.3)
@@ -18,7 +22,11 @@ GEM
     tilt (2.0.8)
 
 PLATFORMS
+<<<<<<< HEAD
   x64-mingw32
+=======
+  x86-mingw32
+>>>>>>> a65355fa0cca42c98329cd80997cfe94555e3274
 
 DEPENDENCIES
   amazon-ecs (~> 2.5)
@@ -26,4 +34,8 @@ DEPENDENCIES
   sinatra (~> 1.4.0)
 
 BUNDLED WITH
+<<<<<<< HEAD
    1.16.0
+=======
+   1.16.1
+>>>>>>> a65355fa0cca42c98329cd80997cfe94555e3274
