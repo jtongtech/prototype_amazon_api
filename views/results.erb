@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
-		<h1>Your Results</h1>
+		<h1><%=product_title%></h1>
+		<h2><%=product_price%></h2>
 	<body>
+
 		
-		<%= product_info %>
+		<% large_photos_array.each do |url| %>
+			<img src=<%=url%>>
+		<%end%>
+
 
 		<form method="post" action="return_home">
 			<input type="submit" value="Search Again">

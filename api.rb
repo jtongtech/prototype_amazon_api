@@ -57,3 +57,24 @@ def get_upc_info(upc)
   html_result
 end
 
+def get_large_images(html_info)
+  
+  large_image = []
+  html_info.css('largeimage url').each do |img|
+    if large_image.include?(img.text) == false
+      large_image << img.text
+    end
+  end
+
+  large_image
+end
+
+def get_product_title(html_info)
+  title = html_info.css('title')[0].text
+  title
+end
+
+def get_product_price(html_info)
+  price = html_info.css('formattedprice')[0].text
+  price
+end
