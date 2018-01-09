@@ -6,6 +6,7 @@ require 'openssl'
 require 'base64'
 require 'open-uri'
 require 'nokogiri'
+require_relative 'api_upc_db.rb'
 load './local_env.rb' if File.exist?('./local_env.rb')
 
 # Your Access Key ID, as taken from the Your Account page

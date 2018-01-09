@@ -4,6 +4,7 @@ GEM
     amazon-ecs (2.5.0)
       nokogiri (~> 1.4)
       ruby-hmac (~> 0.3)
+    json (2.1.0)
     mini_portile2 (2.3.0)
     nokogiri (1.8.1-x64-mingw32)
       mini_portile2 (~> 2.3.0)
@@ -25,6 +26,7 @@ PLATFORMS
 
 DEPENDENCIES
   amazon-ecs (~> 2.5)
+  json
   nokogiri
   sinatra (~> 1.4.0)
 
