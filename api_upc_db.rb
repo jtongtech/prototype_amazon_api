@@ -12,15 +12,9 @@ def get_nutrionix_info(upc)
 
     request = Net::HTTP::Get.new(url)
     request["content-type"] = 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
-    request["api-token"] = '3a419a74a2e469defe7e540fc9c088c47cba8075'
-    request["x-app-id"] = 'cff06745'
-    request["x-app-key"] = '2350a65b08cbeba13f13c627cf538e52'
-    # request["api-token"] = '3a419a74a2e469defe7e540fc9c088c47cba8075'
-    # request["x-app-id"] = '1194f74e'
-    # request["x-app-key"] = '6754b857e1c3ab0cc23d3e56d81d3ffe'
-    # request["api-token"] = '3a419a74a2e469defe7e540fc9c088c47cba8075'
-    # request["x-app-id"] = '6dc25175'
-    # request["x-app-key"] = '66a4ad3c72c25c2c009075bb467bf057'
+    request["api-token"] = ENV['NutritionIX-token']
+    request["x-app-id"] = ENV['AppID']
+    request["x-app-key"] = ENV['AppKey']
     request["x-remote-user-id"] = '0'
     request["authorization"] = 'Basic aGV5dGhyaXZ5ZGV2M0BnbWFpbC5jb206TWluM2RNaW5kcw=='
     request["cache-control"] = 'no-cache'
