@@ -30,16 +30,21 @@ post '/get_info' do
     # print(html_info)
     # redirect '/product?results='+results
   else html_info = get_nutrionix_info(upc)
-    if error_check_nutritionix(html_info) != 'resource not found'
-      html_info = get_nutrionix_info(upc)
-      product_title = get_nutritionix_product_title(html_info)
-      product_price = ''
-      large_photos_array = [get_nutritionix_large_images(html_info)]
-    else
+    if error_check_nutritionix(html_info) == 'resource not found'
       product_title = ''
       product_price = ''
       large_photos_array = ''
       error_message = "Item not Found"
+    elsif error_check_nutritionix(html_info) == 'usage limits exceeded'
+      product_title = ''
+      product_price = ''
+      large_photos_array = ''
+      error_message = "Item not Found on Amazon and Usage Limit Exceeded for NutritionIX API"
+    else
+      html_info = get_nutrionix_info(upc)
+      product_title = get_nutritionix_product_title(html_info)
+      product_price = ''
+      large_photos_array = [get_nutritionix_large_images(html_info)]
     end
   end
     erb :results, locals: {product_info: html_info, large_photos_array: large_photos_array, product_title: product_title, product_price: product_price, error: error_message}
