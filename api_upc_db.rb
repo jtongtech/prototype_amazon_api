@@ -3,6 +3,8 @@ require 'net/http'
 require 'openssl'
 require 'json'
 
+load './local_env.rb' if File.exist?('./local_env.rb')
+
 def get_nutrionix_info(upc)
     url = URI("https://trackapi.nutritionix.com/v2/search/item?upc="+ upc)
 
@@ -29,15 +31,17 @@ def get_nutrionix_info(upc)
     data_hash
 end
 
+# get_nutrionix_info('1111')
+
 def error_check_nutritionix(data_hash)
     nutritionix_error = data_hash['message']
-    puts nutritionix_error
+    # puts nutritionix_error
     nutritionix_error
   end
 
 def get_nutritionix_large_images(data_hash)
     large_image = data_hash['foods'][0]['photo']['thumb']  
-    puts large_image
+    # puts large_image
     large_image
   end
   

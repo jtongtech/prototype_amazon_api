@@ -55,7 +55,7 @@ def get_upc_info(upc)
   # puts "THIS IS html_result: #{html_result}"
   # end
   # puts "Signed URL: \"#{request_url}\""
-  puts "html_result is #{html_result}"
+  
   html_result
 end
 
