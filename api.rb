@@ -65,8 +65,13 @@ def get_upc_info(upc)
   #puts "THIS IS html_result: #{html_result}"
   # end
   # puts "Signed URL: \"#{request_url}\""
+<<<<<<< HEAD
   # html_result
   xml_request
+=======
+  
+  html_result
+>>>>>>> 1bb60b33e6d4f724f78fe4ce1a841dd9df3e3b4c
 end
 
 def error_check(html_info)

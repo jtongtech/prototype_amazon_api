@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require 'open-uri'
 require 'nokogiri'
-require_relative 'mock_amazon_results.rb'
+require_relative 'mock_results.rb'
 require_relative "../api.rb"
 load "../local_env.rb" if File.exist?("../local_env.rb")
 
