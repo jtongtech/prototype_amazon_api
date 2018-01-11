@@ -6,7 +6,6 @@ require 'openssl'
 require 'base64'
 require 'open-uri'
 require 'nokogiri'
-require_relative 'api_upc_db.rb'
 load './local_env.rb' if File.exist?('./local_env.rb')
 
 # Your Access Key ID, as taken from the Your Account page
@@ -50,13 +49,24 @@ def get_upc_info(upc)
   # Generate the signed URL
   request_url = "http://#{ENDPOINT}#{REQUEST_URI}?#{canonical_query_string}&Signature=#{URI.escape(signature, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))}"
 
+  # print("REQUEST_URL: #{request_url}")
+  xml_request = Nokogiri::XML(open(request_url))
+  print("XML REQUEST: #{xml_request}")
+  item = []
+  xml_request.css('Item ItemAttributes ListPrice FormattedPrice').each do |price|
+    item << price.text
+  end
+
+  # item = xml_request.css('Item ')[0]
+  print("ITEM: #{item}")
+
   html_result = Nokogiri::HTML(open(request_url))
   # monkeys.css('largeimage').each do |monkey|
-  # puts "THIS IS html_result: #{html_result}"
+  #puts "THIS IS html_result: #{html_result}"
   # end
   # puts "Signed URL: \"#{request_url}\""
-  puts "html_result is #{html_result}"
-  html_result
+  # html_result
+  xml_request
 end
 
 def error_check(html_info)
@@ -84,4 +94,66 @@ end
 def get_product_price(html_info)
   price = html_info.css('formattedprice')[0].text
   price
+end
+
+def get_product_features(html_info)
+  features = []
+
+  features
+end
+
+
+
+############## XML CALLS ##############
+
+def xml_error_check(html_info)
+  first_item = html_info.css("Items")[0]
+  error = first_item.css('Errors Error Message').text
+  print(error, "<------------this is error")
+  error
+end
+
+def get_xml_product_title(html_info)
+  first_item = html_info.css("Item")[0]
+  title = first_item.css("Title").text
+  print(title, "THIS IS TITLE!!!!")
+  title
+end
+
+def get_xml_product_price(html_info)
+  first_item = html_info.css("Item")[0]
+  price = first_item.css("FormattedPrice").text
+  print(price, "THIS IS PRICE!!!!")
+  price
+end
+
+def get_xml_product_features(html_info)
+  first_item = html_info.css("Item")[0]
+  features = []
+  first_item.css("Feature").each do |feat|
+    features << feat.text
+  end
+  print(features, "THIS IS FEATURES!!!!")
+  features
+end
+
+def get_xml_large_images(html_info)
+first_item = html_info.css("Item")
+print(first_item, "THIS IS first_item!!!!")
+  large_image = []
+  first_item.css("LargeImage URL").each do |url|
+    # print(url, "THIS IS url!!!!")
+    if large_image.include?(url.text) == false
+      large_image << url.text
+    end
+  end
+  print(large_image, "THIS IS large_image!!!!")
+  large_image
+end
+
+def get_xml_product_type_name(html_info)
+  first_item = html_info.css("Item")[0]
+  product_type_name = first_item.css("ProductTypeName").text.gsub!(/_/, ' ')
+  print(product_type_name, "THIS IS TYPE NAME!!!!")
+  product_type_name
 end

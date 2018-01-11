@@ -42,6 +42,10 @@
 			<img class="large_img" src=<%=url%>>
 		<%end%>
 
+		<% product_features.each do |feat| %>
+			<p><%=feat%></p>
+		<%end%>
+
 
 		<form method="post" action="return_home">
 			<input class="submitBtn" type="submit" value="Search Again">
