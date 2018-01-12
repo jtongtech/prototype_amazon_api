@@ -19,17 +19,17 @@ ENDPOINT = "webservices.amazon.com"
 
 REQUEST_URI = "/onca/xml"
 
-def get_upc_info(upc)
+def get_upc_info(asin)
 
   params = {
     "Service" => "AWSECommerceService",
     "Operation" => "ItemLookup",
     "AWSAccessKeyId" => ENV['AWS_ACCESS_KEY_ID'], #from locals
     "AssociateTag" => ENV['AWS_SECRET_ACCESS_KEY'], #from locals
-    "ItemId" => upc, #variable from user input
-    "IdType" => "UPC", #variable from dropdown
-    "ResponseGroup" => "Images,ItemAttributes,ItemIds",
-    "SearchIndex" => "All"
+    "ItemId" => asin, #variable from user input
+    "IdType" => "ASIN", #variable from dropdown
+    "ResponseGroup" => "Images,ItemAttributes,ItemIds"
+    # "SearchIndex" => "All"
   }
 
   # Set current timestamp if not set
@@ -51,14 +51,14 @@ def get_upc_info(upc)
 
   # print("REQUEST_URL: #{request_url}")
   xml_request = Nokogiri::XML(open(request_url))
-  print("XML REQUEST: #{xml_request}")
+  # print("XML REQUEST: #{xml_request}")
   item = []
   xml_request.css('Item ItemAttributes ListPrice FormattedPrice').each do |price|
     item << price.text
   end
 
   # item = xml_request.css('Item ')[0]
-  print("ITEM: #{item}")
+  # print("ITEM: #{item}")
 
   html_result = Nokogiri::HTML(open(request_url))
   # monkeys.css('largeimage').each do |monkey|
@@ -106,31 +106,31 @@ end
 
 ############## XML CALLS ##############
 
-def xml_error_check(html_info)
-  first_item = html_info.css("Items")[0]
-  error = first_item.css('Errors Error Message').text
+def xml_error_check(item)
+  # first_item = html_info.css("Items")[0]
+  error = item.css('Errors Error Message').text
   print(error, "<------------this is error")
   error
 end
 
-def get_xml_product_title(html_info)
-  first_item = html_info.css("Item")[0]
-  title = first_item.css("Title").text
+def get_xml_product_title(item)
+  # first_item = html_info.css("Item")[0]
+  title = item.css("Title").text
   print(title, "THIS IS TITLE!!!!")
   title
 end
 
-def get_xml_product_price(html_info)
-  first_item = html_info.css("Item")[0]
-  price = first_item.css("FormattedPrice").text
+def get_xml_product_price(item)
+  # first_item = html_info.css("Item")[0]
+  price = item.css("FormattedPrice").text
   print(price, "THIS IS PRICE!!!!")
   price
 end
 
-def get_xml_product_features(html_info)
-  first_item = html_info.css("Item")[0]
+def get_xml_product_features(item)
+  # first_item = html_info.css("Item")[0]
   features = []
-  first_item.css("Feature").each do |feat|
+  item.css("Feature").each do |feat|
     features << feat.text
   end
   print(features, "THIS IS FEATURES!!!!")
@@ -151,9 +151,9 @@ print(first_item, "THIS IS first_item!!!!")
   large_image
 end
 
-def get_xml_product_type_name(html_info)
-  first_item = html_info.css("Item")[0]
-  product_type_name = first_item.css("ProductTypeName").text.gsub!(/_/, ' ')
+def get_xml_product_type_name(item)
+  # first_item = html_info.css("Item")[0]
+  product_type_name = item.css("ProductTypeName").text.gsub!(/_/, ' ')
   print(product_type_name, "THIS IS TYPE NAME!!!!")
   product_type_name
 end

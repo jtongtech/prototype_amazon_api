@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'amazon/ecs'
 require_relative 'api.rb'
+require_relative 'lowest_priced_amazon_api.rb'
 require_relative 'api_upc_db.rb'
 require_relative 'dsld_api.rb'
 
@@ -19,19 +20,25 @@ end
 
 post '/get_info' do
   upc = params[:upc]
-  html_info = get_upc_info(upc)
-  error_check = xml_error_check(html_info)
+  lowest_priced_item = lowest_item(upc)
+  # print(lowest_priced_item, "<---------------------here it is")
+  error_check = xml_error_check(lowest_priced_item)
   error_message = ''
 
   spaced_upc = add_spacing_to_upc(upc)
   dsld_info = get_dsld_api_result(spaced_upc)
 
   if error_check == ''
-    product_title = get_xml_product_title(html_info)
-    product_price = get_xml_product_price(html_info)
-    large_photos_array = get_xml_large_images(html_info)
-    product_features = get_xml_product_features(html_info)
-    product_type_name = get_xml_product_type_name(html_info)
+
+    asin = lowest_priced_item.css("ASIN").text
+    xml_info = get_upc_info(asin)
+    print(xml_info, "<------------------------------")
+
+    product_title = get_xml_product_title(xml_info)
+    product_price = get_xml_product_price(xml_info)
+    large_photos_array = get_xml_large_images(xml_info)
+    product_features = get_xml_product_features(xml_info)
+    product_type_name = get_xml_product_type_name(xml_info)
     suggested_use = ''
   elsif get_id_from_result(dsld_info) != ''
       id = get_id_from_result(dsld_info)
