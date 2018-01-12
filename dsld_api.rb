@@ -6,9 +6,10 @@ require 'open-uri'
 require 'json'
 # ​
 dsld_id = ""
-spaced_upc = "0%2037000%2074134%203"
-get_dsld_id = URI("http://www.dsld.nlm.nih.gov/dsld/api/qsearch?searchterm=" + spaced_upc)
-get_dsld_info = URI("http://www.dsld.nlm.nih.gov/dsld/api/label/" + dsld_id)
+# spaced_upc = "0 30768 03268 5"
+# spaced_upc = "0 23290 11111 0"
+# get_dsld_id = URI("http://www.dsld.nlm.nih.gov/dsld/api/qsearch?searchterm=" + spaced_upc)
+# get_dsld_info = URI("http://www.dsld.nlm.nih.gov/dsld/api/label/" + dsld_id)
 # ​
 def dsld_api(url)
     http = Net::HTTP.new(url.host, url.port)
@@ -29,15 +30,82 @@ def dsld_api(url)
     dsld_data_hash = JSON.parse(response.read_body)
     # dsld_id = dsld_data_hash["foundin_05_anyhwere"]["products"][0]["ID"]
     # puts dsld_id
+    # puts(dsld_data_hash, "hash is here")
     dsld_data_hash
 
 end
 
-def complete_dsld_api_result(get_dsld_id)
-    dsld_id = dsld_api(get_dsld_id)["foundin_05_anyhwere"]["products"][0]["ID"]
-    puts dsld_id
-    dsld_info = dsld_api(URI("http://www.dsld.nlm.nih.gov/dsld/api/label/" + dsld_id))
-    puts dsld_info
+def add_spacing_to_upc(upc)
+    upc.insert(1, ' ')
+    upc.insert(7, ' ')
+    upc.insert(13, ' ')
+    upc
 end
 
-complete_dsld_api_result(get_dsld_id)
+def get_dsld_api_result(upc)
+    get_dsld_id = URI("http://www.dsld.nlm.nih.gov/dsld/api/qsearch?searchterm=" + upc)
+    # dsld_id = dsld_api(get_dsld_id)["foundin_05_anyhwere"]["products"][0]["ID"]
+    dsld_info = dsld_api(get_dsld_id)
+    # print(dsld_id, "HERE IS ID RESULT")
+    dsld_info
+end
+
+def get_id_from_result(dsld_info)
+    id = ''
+    if dsld_info["foundin_05_anyhwere"] != {}
+        id = (dsld_info["foundin_05_anyhwere"]["products"][0]["ID"])
+    end
+    id
+end
+
+def get_dsld_lable_info(dsld_id)
+    dsld_info = dsld_api(URI("http://www.dsld.nlm.nih.gov/dsld/api/label/" + dsld_id))
+    dsld_info
+end
+
+def get_statement_of_identity(dsld_info)
+    # id = get_id_from_result(dsld_info)
+    # result = get_dsld_lable_info(id)
+    statement_of_identity = dsld_info["Statement_of_Identity"]
+    statement_of_identity
+end
+
+def get_product_name(dsld_info)
+    # id = get_id_from_result(dsld_info)
+    # result = get_dsld_lable_info(id)
+    product_name = dsld_info["Product_Name"]
+    product_name
+end
+
+def get_suggested_use(dsld_info)
+    # result = complete_dsld_api_result(get_dsld_id)
+    suggested_use = dsld_info["Suggested_Use"]
+    suggested_use
+end
+
+def get_statments(dsld_info)
+##### FUNCTION NOT FINISHED DETAILS COME BACK BUT ARE MIXED ##########
+    result = complete_dsld_api_result(get_dsld_id)
+    statements = []
+    result["statements"].each do |statement|
+        puts(statement["Statement"])
+    end
+end
+
+new_upc = add_spacing_to_upc("030768032682")
+# print(new_upc, "this is the new upc")
+
+result = get_dsld_api_result("0 30768 03268 2")
+# print(result, "HERE IS THE RESULT")
+get_id_from_result(result)
+# print(result, "this is result")
+# dsld_hash = get_dsld_lable_info(result)
+# print(dsld_hash)
+
+# print(statements)
+
+
+
+# result.each do |info|
+#     puts info
+# end
