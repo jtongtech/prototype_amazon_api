@@ -9,15 +9,15 @@ require 'nokogiri'
 load './local_env.rb' if File.exist?('./local_env.rb')
 
 # Your Access Key ID, as taken from the Your Account page
-# ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID']
+ # ACCESS_KEY_ID = ENV['AWS_ACCESS_KEY_ID']
 
 # Your Secret Key corresponding to the above ID, as taken from the Your Account page
-# SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
+ # SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
 
-# The region you are interested in
-# ENDPOINT = "webservices.amazon.com"
+ # The region you are interested in
+ # ENDPOINT = "webservices.amazon.com"
 
-# REQUEST_URI = "/onca/xml"
+ # REQUEST_URI = "/onca/xml"
 
 def get_amazon_info(upc)
 
@@ -123,8 +123,7 @@ def lowest_item(upc)
   lowest_priced_item
 end
 
- # lowest_item("719985860409")
-
+# get_amazon_info("031604026745")
 # def error_check(html_info)
 #   error = html_info.css('errors error message').text
 #   error

@@ -32,8 +32,12 @@
 		</form>
 	<%else%>
 
-
-		<h1><%=product_title%></h1>
+		<% if purchased_link != ''%>
+			<h1><a href=<%=purchased_link%>><%=product_title%></a></h1>
+		<% else %>
+			<h1><%=product_title%></h1>
+			<p>This item was not found on amazon</p>
+		<% end %>
 		<h2><%=product_price%></h2>
 	<body>
 

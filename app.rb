@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'amazon/ecs'
+require 'nokogiri'
 require_relative 'api.rb'
 require_relative 'lowest_priced_amazon_api.rb'
 require_relative 'api_upc_db.rb'
@@ -21,8 +22,9 @@ end
 post '/get_info' do
   upc = params[:upc]
   lowest_priced_item = lowest_item(upc)
-  # print(lowest_priced_item, "<---------------------here it is")
-  error_check = xml_error_check(lowest_priced_item)
+  print(lowest_priced_item, "<---------------------here it is")
+  item_error_check =get_amazon_info(upc)
+  error_check = xml_error_check(item_error_check)
   error_message = ''
 
   spaced_upc = add_spacing_to_upc(upc)
@@ -32,10 +34,11 @@ post '/get_info' do
 
     asin = lowest_priced_item.css("ASIN").text
     xml_info = get_upc_info(asin)
-    print(xml_info, "<------------------------------")
-
+    # print(xml_info, "<------------------------------")
+    purchased_link = lowest_priced_item.css("Offers MoreOffersUrl").text
+    purchased_link = purchased_link[/[^;]+/]
     product_title = get_xml_product_title(xml_info)
-    product_price = get_xml_product_price(xml_info)
+    product_price = lowest_priced_item.css("OfferListing Price FormattedPrice").text
     large_photos_array = get_xml_large_images(xml_info)
     product_features = get_xml_product_features(xml_info)
     product_type_name = get_xml_product_type_name(xml_info)
@@ -49,6 +52,7 @@ post '/get_info' do
       product_features = ['']
       product_type_name = get_statement_of_identity(info)
       suggested_use = get_suggested_use(info)
+      purchased_link = ''
       error_check = ''
   else html_info = get_nutrionix_info(upc)
     if error_check_nutritionix(html_info) == 'resource not found'
@@ -77,7 +81,7 @@ post '/get_info' do
       suggested_use = ''
     end
   end
-    erb :results, locals: {product_info: html_info, large_photos_array: large_photos_array, product_title: product_title, product_price: product_price, product_features: product_features, product_type_name: product_type_name, suggested_use: suggested_use, error: error_check}
+    erb :results, locals: {product_info: html_info, large_photos_array: large_photos_array, product_title: product_title, product_price: product_price, product_features: product_features, product_type_name: product_type_name, suggested_use: suggested_use, purchased_link: purchased_link, error: error_check}
 end  
 
 post '/return_home' do

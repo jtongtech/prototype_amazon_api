@@ -107,23 +107,23 @@ end
 ############## XML CALLS ##############
 
 def xml_error_check(item)
-  # first_item = html_info.css("Items")[0]
+  first_item = item.css("Items")
   error = item.css('Errors Error Message').text
-  print(error, "<------------this is error")
+  # print(error, "<------------this is error")
   error
 end
 
 def get_xml_product_title(item)
   # first_item = html_info.css("Item")[0]
   title = item.css("Title").text
-  print(title, "THIS IS TITLE!!!!")
+  # print(title, "THIS IS TITLE!!!!")
   title
 end
 
 def get_xml_product_price(item)
   # first_item = html_info.css("Item")[0]
   price = item.css("FormattedPrice").text
-  print(price, "THIS IS PRICE!!!!")
+  # print(price, "THIS IS PRICE!!!!")
   price
 end
 
@@ -133,13 +133,13 @@ def get_xml_product_features(item)
   item.css("Feature").each do |feat|
     features << feat.text
   end
-  print(features, "THIS IS FEATURES!!!!")
+  # print(features, "THIS IS FEATURES!!!!")
   features
 end
 
 def get_xml_large_images(html_info)
 first_item = html_info.css("Item")
-print(first_item, "THIS IS first_item!!!!")
+# print(first_item, "THIS IS first_item!!!!")
   large_image = []
   first_item.css("LargeImage URL").each do |url|
     # print(url, "THIS IS url!!!!")
@@ -147,13 +147,13 @@ print(first_item, "THIS IS first_item!!!!")
       large_image << url.text
     end
   end
-  print(large_image, "THIS IS large_image!!!!")
+  # print(large_image, "THIS IS large_image!!!!")
   large_image
 end
 
 def get_xml_product_type_name(item)
   # first_item = html_info.css("Item")[0]
   product_type_name = item.css("ProductTypeName").text.gsub!(/_/, ' ')
-  print(product_type_name, "THIS IS TYPE NAME!!!!")
+  # print(product_type_name, "THIS IS TYPE NAME!!!!")
   product_type_name
 end
