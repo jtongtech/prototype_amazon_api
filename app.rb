@@ -22,7 +22,7 @@ end
 post '/get_info' do
   upc = params[:upc]
   lowest_priced_item = lowest_item(upc)
-  print(lowest_priced_item, "<---------------------here it is")
+  # print(lowest_priced_item, "<---------------------here it is")
   item_error_check =get_amazon_info(upc)
   error_check = xml_error_check(item_error_check)
   error_message = ''
@@ -34,9 +34,10 @@ post '/get_info' do
 
     asin = lowest_priced_item.css("ASIN").text
     xml_info = get_upc_info(asin)
-    # print(xml_info, "<------------------------------")
-    purchased_link = lowest_priced_item.css("Offers MoreOffersUrl").text
-    purchased_link = purchased_link[/[^;]+/]
+    print(xml_info, "<------------------------------")
+    # purchased_link = lowest_priced_item.css("Offers MoreOffersUrl").text
+    # purchased_link = purchased_link[/[^;]+/]
+    purchased_link = xml_info.css("Items Item DetailPageURL").text
     product_title = get_xml_product_title(xml_info)
     product_price = lowest_priced_item.css("OfferListing Price FormattedPrice").text
     large_photos_array = get_xml_large_images(xml_info)
