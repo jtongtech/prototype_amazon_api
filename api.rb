@@ -19,7 +19,7 @@ ENDPOINT = "webservices.amazon.com"
 
 REQUEST_URI = "/onca/xml"
 
-def get_upc_info(asin)
+def get_asin_info(asin)
 
   params = {
     "Service" => "AWSECommerceService",
@@ -51,7 +51,7 @@ def get_upc_info(asin)
 
   # print("REQUEST_URL: #{request_url}")
   xml_request = Nokogiri::XML(open(request_url))
-  # print("XML REQUEST: #{xml_request}")
+  # print(xml_request, "XML REQUEST")
   item = []
   xml_request.css('Item ItemAttributes ListPrice FormattedPrice').each do |price|
     item << price.text
@@ -60,7 +60,7 @@ def get_upc_info(asin)
   # item = xml_request.css('Item ')[0]
   # print("ITEM: #{item}")
 
-  html_result = Nokogiri::HTML(open(request_url))
+  # html_result = Nokogiri::HTML(open(request_url))
   # monkeys.css('largeimage').each do |monkey|
   #puts "THIS IS html_result: #{html_result}"
   # end

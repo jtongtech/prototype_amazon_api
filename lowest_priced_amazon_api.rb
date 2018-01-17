@@ -51,7 +51,7 @@ def get_amazon_info(upc)
 
   # print("REQUEST_URL: #{request_url}")
   xml_request = Nokogiri::XML(open(request_url))
-  # print("XML REQUEST: #{xml_request}")
+  # print(xml_request, "XML REQUEST")
   item = []
   xml_request.css('Item ItemAttributes ListPrice FormattedPrice').each do |price|
     item << price.text
@@ -119,7 +119,10 @@ def lowest_item(upc)
   items_array = get_listed_items_array(upc)
   available_items = drop_array_items_with_no_new_items_available(items_array)
   lowest_priced_item_index = get_lowest_priced_item_index(available_items)
+  print(lowest_priced_item_index, "HERE IS INDEX")
+  print(available_items, "AVAILABLE ITEMS")
   lowest_priced_item = available_items[lowest_priced_item_index.to_i]
+  puts(lowest_priced_item, "LOWEST PRICED ITEM HERE")
   lowest_priced_item
 end
 

@@ -13,3 +13,501 @@ NUTR_RESULT = {"foods"=>[{"food_name"=>"Whey Protein, Chocolate", "brand_name"=>
 BAD_NUTR_RESULT = {"message"=>"resource not found", "id"=>"04a9050e-26a6-4a15-9434-a968903d5413"}
 
 upc = "096619437955"
+
+
+################################################# XML INFO BELOW ####################################################################
+
+XML_RESULT = Nokogiri::XML('<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="Ruby"/>
+    </HTTPHeaders>
+    <RequestId>1aef9c12-ad68-4e51-af3c-e33c0dd31662</RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="AKIAJA4MIF6DRHGONBWQ"/>
+      <Argument Name="AssociateTag" Value="EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"/>
+      <Argument Name="IdType" Value="UPC"/>
+      <Argument Name="ItemId" Value="743715005051"/>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="ResponseGroup" Value="Offers"/>
+      <Argument Name="SearchIndex" Value="All"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2018-01-16T19:46:33Z"/>
+      <Argument Name="Signature" Value="QQCno1TpNUZk4S+hDqYwrAatfqbvBAN/M9knO3m/gdg="/>
+    </Arguments>
+    <RequestProcessingTime>0.0290255450000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>UPC</IdType>
+        <ItemId>743715005051</ItemId>
+        <ResponseGroup>Offers</ResponseGroup>
+        <SearchIndex>All</SearchIndex>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+    </Request>
+    <Item>
+      <ASIN>B001CM30M0</ASIN>
+      <OfferSummary>
+        <LowestNewPrice>
+          <Amount>1276</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$12.76</FormattedPrice>
+        </LowestNewPrice>
+        <TotalNew>10</TotalNew>
+        <TotalUsed>0</TotalUsed>
+        <TotalCollectible>0</TotalCollectible>
+        <TotalRefurbished>0</TotalRefurbished>
+      </OfferSummary>
+      <Offers>
+        <TotalOffers>1</TotalOffers>
+        <TotalOfferPages>1</TotalOfferPages>
+        <MoreOffersUrl>https://www.amazon.com/gp/offer-listing/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</MoreOffersUrl>
+        <Offer>
+          <OfferAttributes>
+            <Condition>New</Condition>
+          </OfferAttributes>
+          <OfferListing>
+            <OfferListingId>q6N0OZzNyp1630W7NYjgL6B3aOMfzJHRCg8trfrmA%2BAvlhTuhRmcU9l3RHBv39c6bRXH7zRnTmUdcq665Y8zQzkDBBAnjhekgimuS5%2FtoeSlgNeKB8sApbgkv%2FMmMcATnYLTZd93G4%2FSxDb15m8LTyWSTKxZRB3C</OfferListingId>
+            <Price>
+              <Amount>1428</Amount>
+              <CurrencyCode>USD</CurrencyCode>
+              <FormattedPrice>$14.28</FormattedPrice>
+            </Price>
+            <Availability>Usually ships in 24 hours</Availability>
+            <AvailabilityAttributes>
+              <AvailabilityType>now</AvailabilityType>
+              <MinimumHours>0</MinimumHours>
+              <MaximumHours>0</MaximumHours>
+            </AvailabilityAttributes>
+            <IsEligibleForSuperSaverShipping>1</IsEligibleForSuperSaverShipping>
+            <IsEligibleForPrime>1</IsEligibleForPrime>
+          </OfferListing>
+        </Offer>
+      </Offers>
+    </Item>
+  </Items>
+</ItemLookupResponse>
+XML REQUEST<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="Ruby"/>
+    </HTTPHeaders>
+    <RequestId>ab20a4a9-d6d0-4cf9-a6b9-b392e011abb6</RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="AKIAJA4MIF6DRHGONBWQ"/>
+      <Argument Name="AssociateTag" Value="EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"/>
+      <Argument Name="IdType" Value="UPC"/>
+      <Argument Name="ItemId" Value="743715005051"/>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="ResponseGroup" Value="Offers"/>
+      <Argument Name="SearchIndex" Value="All"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2018-01-16T19:46:34Z"/>
+      <Argument Name="Signature" Value="LpmymAhZKWeY4dDKRiC+YXOE8xBULmrQDA0NfyK4sL4="/>
+    </Arguments>
+    <RequestProcessingTime>0.0216103250000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>UPC</IdType>
+        <ItemId>743715005051</ItemId>
+        <ResponseGroup>Offers</ResponseGroup>
+        <SearchIndex>All</SearchIndex>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+    </Request>
+    <Item>
+      <ASIN>B001CM30M0</ASIN>
+      <OfferSummary>
+        <LowestNewPrice>
+          <Amount>1276</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$12.76</FormattedPrice>
+        </LowestNewPrice>
+        <TotalNew>10</TotalNew>
+        <TotalUsed>0</TotalUsed>
+        <TotalCollectible>0</TotalCollectible>
+        <TotalRefurbished>0</TotalRefurbished>
+      </OfferSummary>
+      <Offers>
+        <TotalOffers>1</TotalOffers>
+        <TotalOfferPages>1</TotalOfferPages>
+        <MoreOffersUrl>https://www.amazon.com/gp/offer-listing/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</MoreOffersUrl>
+        <Offer>
+          <OfferAttributes>
+            <Condition>New</Condition>
+          </OfferAttributes>
+          <OfferListing>
+            <OfferListingId>q6N0OZzNyp1630W7NYjgL6B3aOMfzJHRCg8trfrmA%2BAvlhTuhRmcU9l3RHBv39c6bRXH7zRnTmUdcq665Y8zQzkDBBAnjhekgimuS5%2FtoeSlgNeKB8sApbgkv%2FMmMcATnYLTZd93G4%2FSxDb15m8LTyWSTKxZRB3C</OfferListingId>
+            <Price>
+              <Amount>1428</Amount>
+              <CurrencyCode>USD</CurrencyCode>
+              <FormattedPrice>$14.28</FormattedPrice>
+            </Price>
+            <Availability>Usually ships in 24 hours</Availability>
+            <AvailabilityAttributes>
+              <AvailabilityType>now</AvailabilityType>
+              <MinimumHours>0</MinimumHours>
+              <MaximumHours>0</MaximumHours>
+            </AvailabilityAttributes>
+            <IsEligibleForSuperSaverShipping>1</IsEligibleForSuperSaverShipping>
+            <IsEligibleForPrime>1</IsEligibleForPrime>
+          </OfferListing>
+        </Offer>
+      </Offers>
+    </Item>
+  </Items>
+</ItemLookupResponse>')
+
+XML_NO_RESULT = Nokogiri::XML('<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="Ruby"/>
+    </HTTPHeaders>
+    <RequestId>8a623306-2378-4f3e-b398-bae7403ced5a</RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="AKIAJA4MIF6DRHGONBWQ"/>
+      <Argument Name="AssociateTag" Value="EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"/>
+      <Argument Name="IdType" Value="UPC"/>
+      <Argument Name="ItemId" Value="719985300400"/>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="ResponseGroup" Value="Offers"/>
+      <Argument Name="SearchIndex" Value="All"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2018-01-16T19:47:46Z"/>
+      <Argument Name="Signature" Value="ShlBr86JYNRm44ThJMZKSl4sSvko0CyhqbWytranZHw="/>
+    </Arguments>
+    <RequestProcessingTime>0.0546985710000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>UPC</IdType>
+        <ItemId>719985300400</ItemId>
+        <ResponseGroup>Offers</ResponseGroup>
+        <SearchIndex>All</SearchIndex>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+      <Errors>
+        <Error>
+          <Code>AWS.InvalidParameterValue</Code>
+          <Message>719985300400 is not a valid value for ItemId. Please change this value and retry your request.</Message>
+        </Error>
+      </Errors>
+    </Request>
+  </Items>
+</ItemLookupResponse>
+XML REQUEST<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="Ruby"/>
+    </HTTPHeaders>
+    <RequestId>bccecdd1-70ff-41f9-92d0-ff22e468a76c</RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="AKIAJA4MIF6DRHGONBWQ"/>
+      <Argument Name="AssociateTag" Value="EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"/>
+      <Argument Name="IdType" Value="UPC"/>
+      <Argument Name="ItemId" Value="719985300400"/>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="ResponseGroup" Value="Offers"/>
+      <Argument Name="SearchIndex" Value="All"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2018-01-16T19:47:46Z"/>
+      <Argument Name="Signature" Value="ShlBr86JYNRm44ThJMZKSl4sSvko0CyhqbWytranZHw="/>
+    </Arguments>
+    <RequestProcessingTime>0.0109309550000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>UPC</IdType>
+        <ItemId>719985300400</ItemId>
+        <ResponseGroup>Offers</ResponseGroup>
+        <SearchIndex>All</SearchIndex>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+      <Errors>
+        <Error>
+          <Code>AWS.InvalidParameterValue</Code>
+          <Message>719985300400 is not a valid value for ItemId. Please change this value and retry your request.</Message>
+        </Error>
+      </Errors>
+    </Request>
+  </Items>
+</ItemLookupResponse>')
+
+
+ASIN_RESULT = Nokogiri::XML('<?xml version="1.0"?>
+<ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+  <OperationRequest>
+    <HTTPHeaders>
+      <Header Name="UserAgent" Value="Ruby"/>
+    </HTTPHeaders>
+    <RequestId>002871fa-a703-4232-b170-0497f3e2dc38</RequestId>
+    <Arguments>
+      <Argument Name="AWSAccessKeyId" Value="AKIAJA4MIF6DRHGONBWQ"/>
+      <Argument Name="AssociateTag" Value="EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ"/>
+      <Argument Name="IdType" Value="ASIN"/>
+      <Argument Name="ItemId" Value="B001CM30M0"/>
+      <Argument Name="Operation" Value="ItemLookup"/>
+      <Argument Name="ResponseGroup" Value="Images,ItemAttributes,ItemIds"/>
+      <Argument Name="Service" Value="AWSECommerceService"/>
+      <Argument Name="Timestamp" Value="2018-01-16T19:55:53Z"/>
+      <Argument Name="Signature" Value="V7fu9ej9paD4fNfxeaozLxsJIF67U+1quwRIYWW4kyc="/>
+    </Arguments>
+    <RequestProcessingTime>0.0055141690000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemLookupRequest>
+        <IdType>ASIN</IdType>
+        <ItemId>B001CM30M0</ItemId>
+        <ResponseGroup>Images</ResponseGroup>
+        <ResponseGroup>ItemAttributes</ResponseGroup>
+        <ResponseGroup>ItemIds</ResponseGroup>
+        <VariationPage>All</VariationPage>
+      </ItemLookupRequest>
+    </Request>
+    <Item>
+      <ASIN>B001CM30M0</ASIN>
+      <DetailPageURL>https://www.amazon.com/Bluebonnet-Vitamin-Chewable-Tablets-Orange/dp/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=165953&amp;creativeASIN=B001CM30M0</DetailPageURL>
+      <ItemLinks>
+        <ItemLink>
+          <Description>Technical Details</Description>
+          <URL>https://www.amazon.com/Bluebonnet-Vitamin-Chewable-Tablets-Orange/dp/tech-data/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Baby Registry</Description>
+          <URL>https://www.amazon.com/gp/registry/baby/add-item.html?asin.0=B001CM30M0&amp;SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Wedding Registry</Description>
+          <URL>https://www.amazon.com/gp/registry/wedding/add-item.html?asin.0=B001CM30M0&amp;SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Wishlist</Description>
+          <URL>https://www.amazon.com/gp/registry/wishlist/add-item.html?asin.0=B001CM30M0&amp;SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Tell A Friend</Description>
+          <URL>https://www.amazon.com/gp/pdp/taf/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Customer Reviews</Description>
+          <URL>https://www.amazon.com/review/product/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Offers</Description>
+          <URL>https://www.amazon.com/gp/offer-listing/B001CM30M0?SubscriptionId=AKIAJA4MIF6DRHGONBWQ&amp;tag=EUm4eiELWQGYq2Kg2ttMwIR9y3xO1IlYUqQ8ATcQ&amp;linkCode=xm2&amp;camp=2025&amp;creative=386001&amp;creativeASIN=B001CM30M0</URL>
+        </ItemLink>
+      </ItemLinks>
+      <SmallImage>
+        <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">39</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">83</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">260</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="variant">
+          <SwatchImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL._SL30_.jpg</URL>
+            <Height Units="pixels">23</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL._SL75_.jpg</URL>
+            <Height Units="pixels">58</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL._SL75_.jpg</URL>
+            <Height Units="pixels">58</Height>
+            <Width Units="pixels">75</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL._SL110_.jpg</URL>
+            <Height Units="pixels">85</Height>
+            <Width Units="pixels">110</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL._SL160_.jpg</URL>
+            <Height Units="pixels">124</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL.jpg</URL>
+            <Height Units="pixels">388</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+        <ImageSet Category="variant">
+          <SwatchImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL._SL30_.jpg</URL>
+            <Height Units="pixels">10</Height>
+            <Width Units="pixels">30</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL._SL75_.jpg</URL>
+            <Height Units="pixels">26</Height>
+            <Width Units="pixels">75</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL._SL75_.jpg</URL>
+            <Height Units="pixels">26</Height>
+            <Width Units="pixels">75</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL._SL110_.jpg</URL>
+            <Height Units="pixels">38</Height>
+            <Width Units="pixels">110</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL._SL160_.jpg</URL>
+            <Height Units="pixels">56</Height>
+            <Width Units="pixels">160</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL.jpg</URL>
+            <Height Units="pixels">175</Height>
+            <Width Units="pixels">500</Width>
+          </LargeImage>
+        </ImageSet>
+        <ImageSet Category="variant">
+          <SwatchImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">22</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">56</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">56</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL._SL110_.jpg</URL>
+            <Height Units="pixels">110</Height>
+            <Width Units="pixels">82</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">120</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">375</Width>
+          </LargeImage>
+        </ImageSet>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">16</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">39</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">39</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL110_.jpg</URL>
+            <Height Units="pixels">110</Height>
+            <Width Units="pixels">57</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">83</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">260</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+      <ItemAttributes>
+        <Binding>Health and Beauty</Binding>
+        <Brand>Blue Bonnet</Brand>
+        <Department>Vitamins &amp; Minerals</Department>
+        <EAN>0743715005051</EAN>
+        <EANList>
+          <EANListElement>0743715005051</EANListElement>
+        </EANList>
+        <Feature>Helps boost the immune system</Feature>
+        <Feature>Helps tissue and bone grow and repair themselves</Feature>
+        <Feature>Gluten Free</Feature>
+        <IsAdultProduct>0</IsAdultProduct>
+        <ItemDimensions>
+          <Height Units="hundredths-inches">500</Height>
+          <Length Units="hundredths-inches">250</Length>
+          <Weight Units="Hundredths Pounds">95</Weight>
+          <Width Units="hundredths-inches">250</Width>
+        </ItemDimensions>
+        <Label>BlueBonnet</Label>
+        <LegalDisclaimer>These statements have not been evaluated by the Food &amp; Drug Administration. This products is not intended to diagnose, cure, mitigate, treat, or prevent any disease.</LegalDisclaimer>
+        <ListPrice>
+          <Amount>1428</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$14.28</FormattedPrice>
+        </ListPrice>
+        <Manufacturer>BlueBonnet</Manufacturer>
+        <Model>743715005051</Model>
+        <MPN>743715005051</MPN>
+        <NumberOfItems>1</NumberOfItems>
+        <PackageDimensions>
+          <Height Units="hundredths-inches">340</Height>
+          <Length Units="hundredths-inches">1010</Length>
+          <Weight Units="Hundredths Pounds">95</Weight>
+          <Width Units="hundredths-inches">410</Width>
+        </PackageDimensions>
+        <PackageQuantity>1</PackageQuantity>
+        <PartNumber>743715005051</PartNumber>
+        <ProductGroup>Health and Beauty</ProductGroup>
+        <ProductTypeName>HEALTH_PERSONAL_CARE</ProductTypeName>
+        <PublicationDate>2015-05-16</PublicationDate>
+        <Publisher>BlueBonnet</Publisher>
+        <ReleaseDate>2015-05-13</ReleaseDate>
+        <Size>90 Chewable Tablets</Size>
+        <Studio>BlueBonnet</Studio>
+        <Title>Bluebonnet Earth Sweet Vitamin C 500 mg Chewable Tablets, Orange, 90 Count</Title>
+        <UPC>743715005051</UPC>
+        <UPCList>
+          <UPCListElement>743715005051</UPCListElement>
+        </UPCList>
+      </ItemAttributes>
+    </Item>
+  </Items>
+</ItemLookupResponse>')
