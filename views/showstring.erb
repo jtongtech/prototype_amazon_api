@@ -1,15 +1,20 @@
 <!DOCTYPE html>
+<style>
+.upload {
+	width: 50%;
+}
+</style>
 <html>
 <center>
 		<h1>BASE 64</h1>
 	<body>
 
-	<img src="data:image/png;base64," + <%=showstring%> >
+	<!-- <img src="data:image/png;base64," + <%=showstring%> > -->
 	<%=showstring%>
 	</body>
 
 	<label class="add_file file_input androidQuery">
-        <input accept="image/*" class="upload" id="photo" type="file" capture="camera">Add Photo
+        <input accept="image/*" class="upload" id="photo" type="file" capture="camera">
     </label>
 	
 	</center>
