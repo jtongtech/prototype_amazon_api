@@ -78,7 +78,7 @@ def get_listed_items_array(upc)
     # puts(single_item_object, "<---------------------- single_item_object is here")
     items_array << single_item_object
   end
-  # print(items_array, "items_object is here")
+  print(items_array, "items_object is here")
   items_array
 end
 

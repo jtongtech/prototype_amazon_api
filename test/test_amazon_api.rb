@@ -69,4 +69,15 @@ class TestAmazonApi < Minitest::Test
         xml_info = ASIN_RESULT
         assert_equal(["https://images-na.ssl-images-amazon.com/images/I/51YmCwIUyWL.jpg", "https://images-na.ssl-images-amazon.com/images/I/51XVeGZtKCL.jpg", "https://images-na.ssl-images-amazon.com/images/I/41iFLzGJGIL.jpg", "https://images-na.ssl-images-amazon.com/images/I/31Wgd-MREdL.jpg"], get_xml_large_images(xml_info))
     end
+
+    def test_get_xml_large_images_no_result
+        xml_info = XML_NO_RESULT
+        assert_equal([], get_xml_large_images(xml_info))
+    end
+
+    def test_get_xml_product_type_name
+        xml_info = ASIN_RESULT
+        assert_equal("HEALTH PERSONAL CARE", get_xml_product_type_name(xml_info))
+    end
+
 end
